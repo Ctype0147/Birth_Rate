@@ -1,0 +1,10 @@
+{
+  "description": "한국 주민등록 세대수 데이터를 시도별로 분석해 연도별 추이와 최신 연도 순위를 시각화하고 지역별 인구 가구 변화를 파악하도록 돕습니다.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

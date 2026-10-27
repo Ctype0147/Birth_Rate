@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Noto Sans KR', sans-serif;
+}
+
+@layer base {
+  :root {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #17211d;
+    background: #f3f4ee;
+    font-synthesis: none;
+  }
+
+  body { min-width: 320px; }
+  select { font: inherit; }
+}
+
+main { min-height: 100vh; }
+
+header {
+  height: 82px;
+  padding: 0 clamp(24px, 6vw, 96px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d7dbd1;
+  background: rgba(243, 244, 238, .94);
+}
+
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark { width: 32px; height: 32px; display: flex; align-items: end; gap: 3px; padding: 5px; background: #143f35; border-radius: 50%; }
+.brand-mark span { display: block; width: 5px; background: #cbe34a; border-radius: 4px 4px 1px 1px; }
+.brand-mark span:nth-child(1) { height: 9px; }
+.brand-mark span:nth-child(2) { height: 17px; }
+.brand-mark span:nth-child(3) { height: 12px; }
+.eyebrow, .section-kicker { font: 700 10px/1 'DM Sans', sans-serif; letter-spacing: .16em; color: #688078; }
+.title { margin-top: 5px; font-weight: 700; font-size: 16px; letter-spacing: -.03em; }
+.source { color: #728078; font-size: 12px; }
+
+.hero {
+  padding: 72px clamp(24px, 8vw, 128px) 82px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 64px;
+  align-items: end;
+  background: #143f35;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after { content: ''; position: absolute; width: 380px; height: 380px; right: -120px; top: -180px; border: 1px solid rgba(203, 227, 74, .2); border-radius: 50%; }
+.hero .section-kicker { color: #cbe34a; }
+.hero-title { margin-top: 18px; font-size: clamp(38px, 5vw, 66px); line-height: 1.12; letter-spacing: -.055em; font-weight: 600; }
+.hero p { max-width: 520px; margin-top: 20px; color: #c5d1cc; font-size: 15px; line-height: 1.8; }
+
+.total-card { padding: 34px; position: relative; z-index: 1; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.07); border-radius: 6px; backdrop-filter: blur(8px); }
+.total-label { color: #c5d1cc; font-size: 13px; }
+.total-value { margin-top: 10px; font: 600 clamp(34px, 4vw, 50px)/1.1 'DM Sans', sans-serif; letter-spacing: -.04em; }
+.total-value span { margin-left: 8px; font: 500 14px 'Noto Sans KR', sans-serif; color: #c5d1cc; }
+.total-meta { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); font-size: 12px; color: #aebdb7; }
+.total-meta strong { color: #cbe34a; margin-right: 8px; }
+.as-of { position: absolute; right: 34px; bottom: 34px; color: #839b92; font: 600 10px 'DM Sans'; }
+
+.dashboard { max-width: 1180px; margin: auto; padding: 76px 24px 100px; }
+.section-heading, .ranking-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.section-title { margin-top: 10px; font-size: 26px; font-weight: 700; letter-spacing: -.04em; }
+label { display: flex; align-items: center; gap: 12px; color: #68746e; font-size: 12px; }
+select { min-width: 190px; padding: 12px 38px 12px 14px; border: 1px solid #cfd4ca; border-radius: 4px; background: #fff; color: #17211d; font-weight: 600; outline: none; }
+select:focus { border-color: #317362; box-shadow: 0 0 0 3px rgba(49,115,98,.12); }
+
+.trend-card, .ranking-card { background: #fff; border: 1px solid #dde0d8; border-radius: 6px; box-shadow: 0 14px 40px rgba(40, 57, 49, .05); }
+.trend-card { padding: 28px 32px 16px; }
+.chart-summary { display: flex; justify-content: space-between; align-items: end; }
+.summary-label { display: block; color: #78847e; font-size: 12px; margin-bottom: 6px; }
+.chart-summary strong { font: 700 28px 'DM Sans'; letter-spacing: -.03em; }
+.chart-summary small { font: 500 13px 'Noto Sans KR'; color: #77827d; }
+.peak { text-align: right; font: 700 13px 'DM Sans'; color: #297760; }
+.peak span { display: block; margin-top: 4px; color: #8a948f; font: 400 11px 'Noto Sans KR'; }
+.trend-wrap svg { display: block; width: 100%; margin-top: 8px; overflow: visible; }
+.grid-line { stroke: #e7e9e3; stroke-width: 1; }
+.line { fill: none; stroke: #317362; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.dot { fill: #cbe34a; stroke: #255e50; stroke-width: 3; }
+.axis-label, .value-label { font-family: 'DM Sans', sans-serif; fill: #7b8580; font-size: 11px; }
+.value-label { fill: #30413a; font-weight: 700; }
+.empty { height: 270px; display: grid; place-items: center; color: #85908a; font-size: 13px; }
+
+.ranking-heading { margin-top: 76px; }
+.ranking-date { color: #7b8580; font-size: 12px; }
+.ranking-card { padding: 20px 30px 24px; }
+.rank-row { display: grid; grid-template-columns: 38px 130px 1fr 100px; gap: 18px; align-items: center; min-height: 52px; border-bottom: 1px solid #edf0ea; }
+.rank { font: 600 12px 'DM Sans'; color: #9ba39f; }
+.rank.top { color: #255e50; }
+.region-name { font-size: 13px; font-weight: 600; }
+.bar-track { height: 8px; background: #f0f2ec; border-radius: 20px; overflow: hidden; }
+.bar-track span { display: block; height: 100%; border-radius: inherit; background: #5a8e80; }
+.rank-row:nth-child(-n+3) .bar-track span { background: #c0d83d; }
+.rank-row.selected { margin: 0 -12px; padding: 0 12px; border-radius: 4px; background: #f3f7e6; }
+.rank-row.selected .region-name { color: #255e50; }
+.rank-row.selected .bar-track span { background: #317362; }
+.rank-row strong { text-align: right; font: 600 12px 'DM Sans'; }
+.data-note { margin-top: 20px; color: #8a938f; font-size: 11px; }
+footer { padding: 24px; text-align: center; border-top: 1px solid #d7dbd1; color: #8a938f; font-size: 11px; }
+
+@media (max-width: 720px) {
+  header { height: 70px; padding: 0 20px; }
+  .source { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 54px 24px; gap: 38px; }
+  .hero-title { font-size: 42px; }
+  .dashboard { padding: 56px 16px 72px; }
+  .section-heading { align-items: stretch; flex-direction: column; }
+  label { justify-content: space-between; }
+  select { flex: 1; }
+  .trend-card { padding: 22px 14px 8px; overflow-x: auto; }
+  .trend-wrap { min-width: 600px; }
+  .ranking-heading { margin-top: 56px; }
+  .ranking-card { padding: 12px 16px 20px; }
+  .rank-row { grid-template-columns: 28px 96px 1fr 78px; gap: 8px; }
+  .rank-row strong { font-size: 10px; }
+}
